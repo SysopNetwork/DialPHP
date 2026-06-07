@@ -3,7 +3,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Platform: Windows](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)]()
 [![BBS: Major BBS v10](https://img.shields.io/badge/BBS-Major%20BBS%20v10-green.svg)]()
-[![Language: C++](https://img.shields.io/badge/Language-C%2B%2B-orange.svg)]()
 
 **TCP/IP authentication and user-management module for The Major BBS v10.** DialPHP loads as a Windows DLL into your BBS server and opens a TCP port that allows external PHP web applications to authenticate users, query account information, and perform administrative operations in real time.
 
@@ -57,10 +56,9 @@ Once the DLL is loaded by the BBS server, any PHP script on your web host can op
 
 ### BBS Module
 
-1. Copy the four files from `DIST/v1.0.0/` to your BBS server's module directory:
+1. Copy the three files from `DIST/v1.0.0/` to your BBS server's module directory:
    ```
    dialphp.dll
-   dialphp.mcv
    dialphp.mdf
    dialphp.msg
    ```
@@ -225,7 +223,7 @@ The project uses Microsoft Visual Studio 2022 (Build Tools edition is sufficient
 The SDK path is defined as a project macro `$(MBBS_SDK_DIR)` in `DialPHP.vcxproj`. The default value is `D:\MBBS-v10-module-SDK\`. To change it, edit the `UserMacros` section near the top of `DialPHP.vcxproj`.
 
 ```powershell
-# Release build → DIST\v1.0.0\dialphp.dll (+ mcv, mdf, msg auto-copied by post-build event)
+# Release build → DIST\v1.0.0\dialphp.dll (+ mdf, msg auto-copied by post-build event)
 & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" `
   DialPHP.sln /p:Configuration=Release /p:Platform=Win32
 
@@ -233,17 +231,6 @@ The SDK path is defined as a project macro `$(MBBS_SDK_DIR)` in `DialPHP.vcxproj
 & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" `
   DialPHP.sln /p:Configuration=Debug /p:Platform=Win32
 ```
-
-> **Note:** The Debug build links against the debug C runtime and will not load on a production BBS server. Always deploy the Release build.
-
-### Recompiling the Message File (.mcv)
-
-The `dialphp.mcv` message file must be compiled using `GALMERGE.EXE` from the Worldgroup 3.3 SDK. `GALMERGE.EXE` requires `cw3220mt.DLL` (Borland C++ runtime), which is only present on a live Worldgroup/MBBS server. To recompile:
-
-1. Copy `Source/Dist/dialphp.msg` to your demo/test BBS server
-2. Run `GALMERGE DIALPHP` in the BBS directory
-3. Copy the resulting `dialphp.mcv` back to `Source/Dist/dialphp.mcv`
-4. Run a Release build — the post-build event auto-copies it to the output directory
 
 ### Key Compiler Flags
 
@@ -269,30 +256,12 @@ The `PHP CODE EXAMPLES/` directory contains a complete, ready-to-deploy PHP clie
 | `stats.php` | Sysop | Live BBS system statistics with 60-minute cache |
 | `sysop.php` | Sysop | Full admin panel — all 24 commands |
 
----
-
-## Repository Layout
-
-```
-dialphp/
-├── Source/              C++ module source files
-│   └── Dist/            Runtime files (mcv, mdf, msg) — copied to DIST on Release build
-├── DIST/
-│   └── v1.0.0/          Compiled release — ready to deploy to the BBS server
-├── PHP CODE EXAMPLES/   PHP client library and example pages
-├── dp.bbs.lat/          Deployment template for the dp.bbs.lat test instance
-├── Screenshot/          Project screenshots
-├── DialPHP.sln          Visual Studio solution
-├── DialPHP.vcxproj      Visual Studio project file
-└── DIALPHP_EXP.DEF      DLL export definition
-```
 
 ---
 
 ## License
 
-This project is licensed under the **MIT License**.
+Released under the [MIT License](LICENSE).
 
----
-
-<sub>DialASP originally created by DialSoft. DialPHP updated and maintained by Mark Laudenbach &bull; Sysop Network.</sub>
+DialPHP is developed and maintained by Mark Laudenbach at Sysop Network.
+Original DialASP was developed by DialSoft!

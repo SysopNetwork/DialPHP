@@ -103,8 +103,7 @@
       <ImportLibrary>$(SolutionDir)Build\Release\dialphp.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(SolutionDir)Source\Dist\dialphp.mcv" "$(OutDir)dialphp.mcv"
-copy /Y "$(SolutionDir)Source\Dist\dialphp.mdf" "$(OutDir)dialphp.mdf"
+      <Command>copy /Y "$(SolutionDir)Source\Dist\dialphp.mdf" "$(OutDir)dialphp.mdf"
 copy /Y "$(SolutionDir)Source\Dist\dialphp.msg" "$(OutDir)dialphp.msg"</Command>
       <Message>Copying runtime distribution files to $(OutDir)</Message>
     </PostBuildEvent>
@@ -127,10 +126,12 @@ copy /Y "$(SolutionDir)Source\Dist\dialphp.msg" "$(OutDir)dialphp.msg"</Command>
     <ClCompile Include="Source\debug.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ResourceCompile Include="Source\dialphp.rc" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="DIALPHP_EXP.DEF" />
     <None Include="Source\Dist\dialphp.mdf" />
     <None Include="Source\Dist\dialphp.msg" />
-    <None Include="Source\Dist\dialphp.mcv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
