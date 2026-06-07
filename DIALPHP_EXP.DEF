@@ -1,0 +1,8 @@
+; Filename: DIALPHP_EXP.DEF
+LIBRARY DIALPHP.DLL
+; *** Visual Studio EXPORT ALIASES ONLY ***
+; DialPHP - PHP Authentication Module for The Major BBS v10
+; Copyright (C) DialSoft!  All Rights Reserved.
+; DialPHP maintained by Mark Laudenbach, Sysop Network
+EXPORTS
+	_init__dialphp=init__dialphp	@1

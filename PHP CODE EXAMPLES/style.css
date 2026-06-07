@@ -1,0 +1,516 @@
+/*
+ * DialPHP Examples — Shared Stylesheet
+ *
+ * Copyright (c) 2026 Mark Laudenbach
+ * Sysop Network
+ * Licensed under the MIT License
+ */
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1f2328;
+    background: #f6f8fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a { color: #0969da; }
+a:hover { text-decoration: underline; }
+
+/* ============================================================
+   Top Navigation
+   ============================================================ */
+.nav {
+    background: #1a1e23;
+    border-bottom: 1px solid #30363d;
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Site name / logo */
+.nav-brand {
+    color: #f0f6fc;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 20px;
+    letter-spacing: -0.2px;
+    white-space: nowrap;
+}
+.nav-brand span { color: #58a6ff; }
+
+/* Navigation links */
+.nav a {
+    color: #8b949e;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
+}
+.nav a:hover {
+    color: #e6edf3;
+    background: rgba(177,186,196,0.1);
+    text-decoration: none;
+}
+.nav a.active {
+    color: #f0f6fc;
+    font-weight: 600;
+}
+
+/* Pushes nav-user info to the right */
+.nav .spacer { flex: 1; }
+
+/* Logged-in user tag in nav */
+.nav .nav-user {
+    font-size: 12px;
+    color: #8b949e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.nav .nav-user strong { color: #c9d1d9; }
+.nav .nav-user a {
+    background: rgba(177,186,196,0.12);
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+/* ============================================================
+   Main content area
+   ============================================================ */
+.page {
+    flex: 1;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 28px 16px;
+    width: 100%;
+}
+
+/* ============================================================
+   Page heading
+   ============================================================ */
+.page-head { margin-bottom: 24px; }
+.page-head h1 {
+    margin: 0 0 4px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1f2328;
+}
+.page-head p {
+    margin: 0;
+    font-size: 14px;
+    color: #57606a;
+}
+
+/* ============================================================
+   Box / Card
+   ============================================================ */
+.box {
+    background: #fff;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+/* Shaded card header */
+.box-head {
+    background: #f6f8fa;
+    border-bottom: 1px solid #d0d7de;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2328;
+}
+
+.box-body { padding: 16px; }
+
+/* Shaded card footer */
+.box-foot {
+    background: #f6f8fa;
+    border-top: 1px solid #d0d7de;
+    padding: 10px 16px;
+    font-size: 12px;
+    color: #57606a;
+}
+
+/* ============================================================
+   Grid layouts
+   ============================================================ */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+.gap-top { margin-top: 16px; }
+
+/* ============================================================
+   Stat cards (large numbers)
+   ============================================================ */
+.stat {
+    background: #fff;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 16px 20px;
+}
+.stat .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #57606a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+}
+.stat .stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0969da;
+    font-family: ui-monospace, "Cascadia Code", "Courier New", monospace;
+    line-height: 1.2;
+}
+.stat .stat-sub {
+    font-size: 12px;
+    color: #8b949e;
+    margin-top: 4px;
+}
+
+/* ============================================================
+   Forms
+   ============================================================ */
+.form-row { margin-bottom: 12px; }
+
+.form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1f2328;
+    margin-bottom: 5px;
+}
+.form-label .hint {
+    font-weight: 400;
+    color: #57606a;
+    font-size: 12px;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    padding: 5px 12px;
+    height: 32px;
+    font-size: 14px;
+    color: #1f2328;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+    font-family: inherit;
+}
+.form-input:focus {
+    background: #fff;
+    border-color: #0969da;
+    box-shadow: inset 0 0 0 1px #0969da;
+}
+
+textarea.form-input {
+    height: auto;
+    min-height: 64px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.form-inline {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+.form-inline .form-row { margin-bottom: 0; flex: 1; min-width: 120px; }
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 16px;
+    height: 32px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid rgba(31,35,40,0.15);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: inherit;
+    line-height: 20px;
+    transition: filter 0.1s;
+}
+.btn:hover { filter: brightness(0.96); text-decoration: none; }
+
+.btn-primary { background: #0969da; color: #fff; border-color: transparent; }
+.btn-primary:hover { background: #0860ca; filter: none; }
+
+.btn-danger { background: #d1242f; color: #fff; border-color: transparent; }
+.btn-danger:hover { background: #bf1a24; filter: none; }
+
+.btn-warning { background: #d97706; color: #fff; border-color: transparent; }
+.btn-warning:hover { background: #c26a05; filter: none; }
+
+.btn-default { background: #f6f8fa; color: #24292f; }
+.btn-default:hover { background: #f0f2f4; border-color: #b1bac4; filter: none; }
+
+.btn-sm   { padding: 3px 10px; height: 26px; font-size: 12px; }
+.btn-full { width: 100%; justify-content: center; padding: 8px 16px; height: auto; }
+
+/* ============================================================
+   Flash / Alert messages
+   ============================================================ */
+.flash {
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+.flash-error   { background: #ffebe9; border: 1px solid rgba(255,129,130,0.4); color: #82071e; }
+.flash-success { background: #dafbe1; border: 1px solid rgba(74,194,107,0.4);  color: #116329; }
+.flash-info    { background: #ddf4ff; border: 1px solid rgba(84,174,255,0.4);  color: #0550ae; }
+.flash-warn    { background: #fff8c5; border: 1px solid rgba(174,124,20,0.4);  color: #7d4e00; }
+
+/* ============================================================
+   Badges
+   ============================================================ */
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    white-space: nowrap;
+}
+.badge-green  { background: #dafbe1; color: #116329; }
+.badge-red    { background: #ffebe9; color: #82071e; }
+.badge-blue   { background: #ddf4ff; color: #0550ae; }
+.badge-gray   { background: #eaeef2; color: #57606a; }
+.badge-yellow { background: #fff8c5; color: #7d4e00; }
+
+/* ============================================================
+   Data table
+   ============================================================ */
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
+.tbl th {
+    font-size: 11px;
+    font-weight: 700;
+    color: #57606a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 8px 12px;
+    border-bottom: 1px solid #d0d7de;
+    background: #f6f8fa;
+    text-align: left;
+}
+.tbl td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+}
+.tbl tr:last-child td { border-bottom: none; }
+.tbl tr:hover td { background: #fafbfc; }
+.tbl .lbl { color: #57606a; font-weight: 500; width: 50%; }
+
+/* ============================================================
+   Command reference table (index page)
+   ============================================================ */
+.cmd-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.cmd-table th {
+    font-size: 11px;
+    font-weight: 700;
+    color: #57606a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 8px 12px;
+    border-bottom: 1px solid #d0d7de;
+    background: #f6f8fa;
+    text-align: left;
+}
+.cmd-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+}
+.cmd-table tr:last-child td { border-bottom: none; }
+.cmd-table tr:hover td { background: #fafbfc; }
+
+/* ============================================================
+   Monospace / code helpers
+   ============================================================ */
+.mono { font-family: ui-monospace, "Cascadia Code", "Courier New", monospace; }
+
+/* Inline code pill */
+.code {
+    display: inline-block;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-family: ui-monospace, "Courier New", monospace;
+    font-size: 12px;
+    color: #1f2328;
+}
+
+/* Terminal-style result display */
+.result-box {
+    background: #161b22;
+    color: #e6edf3;
+    font-family: ui-monospace, "Cascadia Code", "Courier New", monospace;
+    font-size: 13px;
+    padding: 12px 14px;
+    border-radius: 6px;
+    min-height: 38px;
+    word-break: break-all;
+    margin-top: 10px;
+    white-space: pre-wrap;
+}
+
+/* ============================================================
+   Section labels
+   ============================================================ */
+.section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #57606a;
+    margin: 24px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #d0d7de;
+}
+.section-label:first-child { margin-top: 0; }
+
+/* ============================================================
+   Divider
+   ============================================================ */
+hr { border: none; border-top: 1px solid #d0d7de; margin: 20px 0; }
+
+/* ============================================================
+   Logged-in user bar (protected pages)
+   ============================================================ */
+.user-bar {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+}
+.user-bar .ub-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.user-bar strong { color: #0969da; }
+
+/* ============================================================
+   Example cards (index page)
+   ============================================================ */
+.card-link {
+    background: #fff;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    height: 100%;
+}
+.card-link:hover {
+    border-color: #0969da;
+    box-shadow: 0 0 0 3px rgba(9,105,218,0.1);
+    text-decoration: none;
+}
+.card-link .card-icon  { font-size: 26px; margin-bottom: 10px; }
+.card-link .card-title { font-size: 15px; font-weight: 600; color: #1f2328; margin-bottom: 6px; }
+.card-link .card-desc  { font-size: 13px; color: #57606a; line-height: 1.5; }
+.card-link .card-tag   { display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 600; color: #0969da; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* ============================================================
+   Login page layout
+   ============================================================ */
+.login-wrap {
+    display: flex;
+    justify-content: center;
+    padding-top: 48px;
+}
+.login-box {
+    width: 100%;
+    max-width: 360px;
+}
+.login-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.login-logo h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2328;
+    margin: 0 0 4px;
+}
+.login-logo p {
+    color: #57606a;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+    background: #1a1e23;
+    border-top: 1px solid #30363d;
+    color: #8b949e;
+    text-align: center;
+    padding: 16px 24px;
+    font-size: 12px;
+}
+.footer a { color: #58a6ff; text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 640px) {
+    .nav { padding: 0 12px; }
+    .nav-brand { font-size: 15px; margin-right: 10px; }
+    .page { padding: 16px 12px; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .form-inline { flex-direction: column; }
+    .user-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+}

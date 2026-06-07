@@ -1,0 +1,30 @@
+; DIALPHP.MDF
+
+Module Name: DialPHP
+
+Developer: DialSoft!
+Maintained by: Mark Laudenbach, Sysop Network
+
+INTERNAL
+UNCONDITIONAL
+
+Requires:
+Replaces:
+
+Install:
+
+Online user manual:
+
+DLLs: DIALPHP
+MSGs: DIALPHP
+
+Cleanup:
+
+Event-1:
+Event-2:
+Event-3:
+Event-4:
+
+Add-On utility:
+
+

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{31A60275-B04F-4D49-B420-90D2859D6B85}</ProjectGuid>
+    <RootNamespace>DialPHP</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>DialPHP</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <MBBS_SDK_DIR>D:\MBBS-v10-module-SDK\</MBBS_SDK_DIR>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\Debug\</OutDir>
+    <IntDir>$(SolutionDir)Build\Debug\obj\</IntDir>
+    <TargetName>dialphp</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)DIST\v1.0.0\</OutDir>
+    <IntDir>$(SolutionDir)Build\Release\obj\</IntDir>
+    <TargetName>dialphp</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;GCWINNT;GCMVC;BBSVER=1000;USE_DEF_FILE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;__BUILDV10MODULE;_DEBUG</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(MBBS_SDK_DIR)inc;$(MBBS_SDK_DIR)inc\msg\v10;$(SolutionDir)Source</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <StructMemberAlignment>8Bytes</StructMemberAlignment>
+      <AdditionalOptions>/J /Zc:strictStrings- %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(MBBS_SDK_DIR)lib\importlibs;$(MBBS_SDK_DIR)lib\v10</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wgserver_lib.lib;galgsbl_lib.lib;galtcpip_lib.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>$(SolutionDir)DIALPHP_EXP.DEF</ModuleDefinitionFile>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;GCWINNT;GCMVC;BBSVER=1000;USE_DEF_FILE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;__BUILDV10MODULE;NDEBUG</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(MBBS_SDK_DIR)inc;$(MBBS_SDK_DIR)inc\msg\v10;$(SolutionDir)Source</AdditionalIncludeDirectories>
+      <StructMemberAlignment>8Bytes</StructMemberAlignment>
+      <AdditionalOptions>/J /Zc:strictStrings- %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(MBBS_SDK_DIR)lib\importlibs;$(MBBS_SDK_DIR)lib\v10</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wgserver_lib.lib;galgsbl_lib.lib;galtcpip_lib.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>$(SolutionDir)DIALPHP_EXP.DEF</ModuleDefinitionFile>
+      <ProgramDatabaseFile>$(SolutionDir)Build\Release\dialphp.pdb</ProgramDatabaseFile>
+      <ImportLibrary>$(SolutionDir)Build\Release\dialphp.lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)Source\Dist\dialphp.mcv" "$(OutDir)dialphp.mcv"
+copy /Y "$(SolutionDir)Source\Dist\dialphp.mdf" "$(OutDir)dialphp.mdf"
+copy /Y "$(SolutionDir)Source\Dist\dialphp.msg" "$(OutDir)dialphp.msg"</Command>
+      <Message>Copying runtime distribution files to $(OutDir)</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\asp.h" />
+    <ClInclude Include="Source\dialphp.h" />
+    <ClInclude Include="Source\master.h" />
+    <ClInclude Include="Source\protos.h" />
+    <ClInclude Include="Source\macros.h" />
+    <ClInclude Include="Source\answer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\dialphp.cpp" />
+    <ClCompile Include="Source\requests.cpp" />
+    <ClCompile Include="Source\validate.cpp" />
+    <ClCompile Include="Source\fio.cpp" />
+    <ClCompile Include="Source\tids.cpp" />
+    <ClCompile Include="Source\dclasses.cpp" />
+    <ClCompile Include="Source\debug.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DIALPHP_EXP.DEF" />
+    <None Include="Source\Dist\dialphp.mdf" />
+    <None Include="Source\Dist\dialphp.msg" />
+    <None Include="Source\Dist\dialphp.mcv" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
