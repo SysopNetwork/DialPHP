@@ -1,5 +1,7 @@
 # DialPHP
 
+Thank you to Marc Frega / DialSoft for providing the source for for DialASP.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Platform: Windows](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)]()
 [![BBS: Major BBS v10](https://img.shields.io/badge/BBS-Major%20BBS%20v10-green.svg)]()
@@ -263,5 +265,5 @@ The `PHP CODE EXAMPLES/` directory contains a complete, ready-to-deploy PHP clie
 
 Released under the [MIT License](LICENSE).
 
+DialASP Copyright DialSoft!
 DialPHP is developed and maintained by Mark Laudenbach at Sysop Network.
-Original DialASP was developed by DialSoft!
